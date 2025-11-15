@@ -1,0 +1,1148 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daffa Febrian Miftahul Huda - Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --gray: #7f8c8d;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, #1a252f 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .logo span {
+            color: var(--secondary);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--secondary);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 120px 2rem 80px;
+            background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.9)), 
+                        url('https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--secondary);
+            font-weight: 400;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--secondary);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #2980b9;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* About Section */
+        .about {
+            padding: 5rem 2rem;
+            background: white;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 3px;
+            background: var(--secondary);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-image {
+            text-align: center;
+        }
+
+        .profile-img {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--secondary);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            color: var(--gray);
+        }
+
+        .about-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .detail-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .detail-item i {
+            color: var(--secondary);
+        }
+
+        /* Skills Section */
+        .skills {
+            padding: 5rem 2rem;
+            background: #f5f7fa;
+        }
+
+        .skills-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-10px);
+        }
+
+        .skill-category h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .skill-list li:last-child {
+            border-bottom: none;
+        }
+
+        .skill-name {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill-level {
+            background: var(--light);
+            height: 8px;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-top: 0.5rem;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: var(--secondary);
+            border-radius: 4px;
+        }
+
+        /* Portfolio Section */
+        .portfolio {
+            padding: 5rem 2rem;
+            background: white;
+        }
+
+        .portfolio-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .portfolio-filter {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .filter-btn {
+            background: var(--light);
+            color: var(--dark);
+            padding: 0.5rem 1.5rem;
+            border-radius: 30px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--secondary);
+            color: white;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .portfolio-item {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            position: relative;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .portfolio-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(44, 62, 80, 0.9);
+            color: white;
+            padding: 1.5rem;
+            transform: translateY(100%);
+            transition: transform 0.3s;
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            transform: translateY(0);
+        }
+
+        .portfolio-overlay h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .portfolio-overlay p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-bottom: 1rem;
+        }
+
+        .portfolio-links {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .portfolio-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        /* Certificates Section */
+        .certificates {
+            padding: 5rem 2rem;
+            background: #f5f7fa;
+        }
+
+        .certificates-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .certificate-item {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .certificate-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .certificate-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .certificate-content {
+            padding: 1.5rem;
+        }
+
+        .certificate-content h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+
+        .certificate-content p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 5rem 2rem;
+            background: white;
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .contact-details h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .contact-form {
+            background: #f5f7fa;
+            padding: 2rem;
+            border-radius: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: white;
+            padding: 3rem 2rem 1rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-column h3 {
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #ddd;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .about-container {
+                grid-template-columns: 1fr;
+            }
+
+            .about-details {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .portfolio-grid,
+            .certificates-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.8s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="nav-container">
+            <div class="logo">Daffa<span>Portfolio</span></div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">Tentang</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#portfolio">Karya</a></li>
+                <li><a href="#certificates">Sertifikat</a></li>
+                <li><a href="#contact">Kontak</a></li>
+            </ul>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content fade-in">
+            <h1>Daffa Febrian Miftahul Huda</h1>
+            <h2>Mahasiswa Sistem Informasi & Desainer Grafis</h2>
+            <p>Saya adalah mahasiswa Sistem Informasi di Universitas Gunadarma dengan pengalaman dalam desain grafis dan sedang mendalami pemrograman. Saya aktif mencari peluang untuk mengembangkan pengalaman dan keterampilan saya.</p>
+            <a href="#portfolio" class="btn">Lihat Karya Saya</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="section-title">
+            <h2>Tentang Saya</h2>
+        </div>
+        <div class="about-container">
+            <div class="about-image">
+                <img src="icon/daffa.JPG" alt="Daffa Febrian Miftahul Huda" class="profile-img">
+            </div>
+            <div class="about-text">
+                <h3>Mahasiswa Sistem Informasi & Desainer Grafis</h3>
+                <p>My name is Daffa Febrian Miftahul Huda, as a Information Systems student at Gunadarma University, I have developed significant technical expertise through active participation in Printing Design, Vector Illustration, Banner Design projects at the company IKA SUGIUTAMA.</p>
+                <p>I also received an Eskage certificate because I participated in company projects. Currently, I am deepening my programming knowledge, and proactively looking for opportunities to expand my experience.</p>
+                
+                <div class="about-details">
+                    <div class="detail-item">
+                        <i class="fas fa-user-graduate"></i>
+                        <span>Universitas Gunadarma</span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-laptop-code"></i>
+                        <span>Sistem Informasi</span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Depok, Indonesia</span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>daffafebrian@example.com</span>
+                    </div>
+                </div>
+                
+                <a href="#contact" class="btn">Hubungi Saya</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills" id="skills">
+        <div class="section-title">
+            <h2>Skills & Kemampuan</h2>
+        </div>
+        <div class="skills-container">
+            <div class="skill-category fade-in">
+                <h3><i class="fas fa-palette"></i> Desain Grafis</h3>
+                <ul class="skill-list">
+                    <li>
+                        <div class="skill-name">
+                            <i class="fas fa-check"></i>
+                            <span>Printing Design</span>
+                        </div>
+                        <div class="skill-level">
+                            <div class="skill-progress" style="width: 90%"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="skill-name">
+                            <i class="fas fa-check"></i>
+                            <span>Vector Illustration</span>
+                        </div>
+                        <div class="skill-level">
+                            <div class="skill-progress" style="width: 85%"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="skill-name">
+                            <i class="fas fa-check"></i>
+                            <span>Banner Design</span>
+                        </div>
+                        <div class="skill-level">
+                            <div class="skill-progress" style="width: 88%"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="skill-name">
+                            <i class="fas fa-check"></i>
+                            <span>Adobe Illustrator</span>
+                        </div>
+                        <div class="skill-level">
+                            <div class="skill-progress" style="width: 80%"></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="skill-category fade-in">
+                <h3><i class="fas fa-code"></i> Pemrograman</h3>
+                <ul class="skill-list">
+                    <li>
+                        <div class="skill-name">
+                            <i class="fas fa-check"></i>
+                            <span>HTML/CSS</span>
+                        </div>
+                        <div class="skill-level">
+                            <div class="skill-progress" style="width: 75%"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="skill-name">
+                            <i class="fas fa-check"></i>
+                            <span>JavaScript</span>
+                        </div>
+                        <div class="skill-level">
+                            <div class="skill-progress" style="width: 65%"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="skill-name">
+                            <i class="fas fa-check"></i>
+                            <span>PHP</span>
+                        </div>
+                        <div class="skill-level">
+                            <div class="skill-progress" style="width: 60%"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="skill-name">
+                            <i class="fas fa-check"></i>
+                            <span>MySQL</span>
+                        </div>
+                        <div class="skill-level">
+                            <div class="skill-progress" style="width: 70%"></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="skill-category fade-in">
+                <h3><i class="fas fa-tools"></i> Lainnya</h3>
+                <ul class="skill-list">
+                    <li>
+                        <div class="skill-name">
+                            <i class="fas fa-check"></i>
+                            <span>Project Management</span>
+                        </div>
+                        <div class="skill-level">
+                            <div class="skill-progress" style="width: 75%"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="skill-name">
+                            <i class="fas fa-check"></i>
+                            <span>Team Collaboration</span>
+                        </div>
+                        <div class="skill-level">
+                            <div class="skill-progress" style="width: 85%"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="skill-name">
+                            <i class="fas fa-check"></i>
+                            <span>Problem Solving</span>
+                        </div>
+                        <div class="skill-level">
+                            <div class="skill-progress" style="width: 80%"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="skill-name">
+                            <i class="fas fa-check"></i>
+                            <span>Communication</span>
+                        </div>
+                        <div class="skill-level">
+                            <div class="skill-progress" style="width: 85%"></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio" id="portfolio">
+        <div class="section-title">
+            <h2>Portfolio & Karya</h2>
+        </div>
+        <div class="portfolio-container">
+            <div class="portfolio-filter">
+                <button class="filter-btn active" data-filter="all">Semua</button>
+                <button class="filter-btn" data-filter="design">Desain Grafis</button>
+                <button class="filter-btn" data-filter="web">Web Development</button>
+                <button class="filter-btn" data-filter="illustration">Illustration</button>
+            </div>
+            
+            <div class="portfolio-grid">
+                <div class="portfolio-item fade-in" data-category="illustration">
+                    <img src="icon/vektor .png" alt="Vector Illustration" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>Vektor Illustration </h3>
+                        <p>Desain Vektor untuk kebutuhan percetakan </p>
+                        <div class="portfolio-links">
+                            <a href="#"><i class="fas fa-external-link-alt"></i> Lihat Detail</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item fade-in" data-category="design">
+                    <img src="icon/Kartu Ucapan  .png" alt="Printing Design" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>Greeting Card Design</h3>
+                        <p>Desain Kartu ucapan untuk keperluan Pelanggan</p>
+                        <div class="portfolio-links">
+                            <a href="#"><i class="fas fa-external-link-alt"></i> Lihat Detail</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item fade-in" data-category="design">
+                    <img src="icon/POSTER.jpg" alt="POSTER Design" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>POSTER Design</h3>
+                        <p>Desain POSTER HUT RI untuk meryakan Kemerdekaan Indonesia ke 80
+
+                        </p>
+                        <div class="portfolio-links">
+                            <a href="#"><i class="fas fa-external-link-alt"></i> Lihat Detail</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item fade-in" data-category="web">
+                    <img src="icon/tetris.png" alt="Web Development" class="portfolio-img">
+                    <div class="portfolio-overlay">
+                        <h3>Website Games</h3>
+                        <p>Pengembangan website Games menggunakan HTML, CSS, JavaScript</p>
+                        <div class="portfolio-links">
+                            <a href="#"><i class="fas fa-external-link-alt"></i> Lihat Detail</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificates Section -->
+    <section class="certificates" id="certificates">
+        <div class="section-title">
+            <h2>Sertifikat & Penghargaan</h2>
+        </div>
+        <div class="certificates-container">
+            <div class="certificate-item fade-in">
+                <img src="icon/ESKAGE.png" alt="Eskage Certificate" class="certificate-img">
+                <div class="certificate-content">
+                    <h3>Sertifikat Eskage</h3>
+                    <p>Diberikan karena partisipasi aktif dalam proyek perusahaan Eskage</p>
+                </div>
+            </div>
+            
+            <div class="certificate-item fade-in">
+                <img src="icon/IKASUGI.png" alt="Eskage Certificate" class="certificate-img">
+                <div class="certificate-content">
+                    <h3>Sertifikat IKA SUGIUTAMA</h3>
+                    <p>Diberikan karena partisipasi aktif dalam proyek perusahaan IKA SUGIUTAMA</p>
+                </div>
+            </div>
+            
+            <div class="certificate-item fade-in">
+                <img src="icon/BNSP.png" alt="Eskage Certificate" class="certificate-img">
+                <div class="certificate-content">
+                    <h3>Penghargaan BNSP</h3>
+                    <p>Pencapaian akademik selama menempuh pendidikan di SMK PB,SOEDIRMAN 1</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="section-title">
+            <h2>Kontak Saya</h2>
+        </div>
+        <div class="contact-container">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>Lokasi</h3>
+                        <p>Ciracas, Jakarta Timur, Indonesia</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>Email</h3>
+                        <p>daffamiftahul2102@gmail.com</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>Telepon</h3>
+                        <p>+62 812 9432 7445</p>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>Pendidikan</h3>
+                        <p>Universitas Gunadarma - Sistem Informasi</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="contact-form">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Nama Lengkap</label>
+                        <input type="text" id="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject">Subjek</label>
+                        <input type="text" id="subject" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Pesan</label>
+                        <textarea id="message" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn">Kirim Pesan</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Daffa Febrian</h3>
+                <p>Mahasiswa Sistem Informasi di Universitas Gunadarma dengan pengalaman dalam desain grafis dan sedang mendalami pemrograman.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-behance"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">Tentang Saya</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Layanan</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Desain Grafis</a></li>
+                    <li><a href="#">Vector Illustration</a></li>
+                    <li><a href="#">Web Development</a></li>
+                    <li><a href="#">UI/UX Design</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Kontak</h3>
+                <ul class="footer-links">
+                    <li><a href="mailto:daffafebrian@example.com">daffamiftahul2102@gmail.com</a></li>
+                    <li><a href="tel:+6281234567890">+62 812 9432 7445</a></li>
+                    <li><a href="#">Ciracas, Jakarta Timur</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2023 Daffa Febrian Miftahul Huda. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Portfolio Filter
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                const filterValue = button.getAttribute('data-filter');
+                
+                portfolioItems.forEach(item => {
+                    if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Terima kasih! Pesan Anda telah berhasil dikirim.');
+            this.reset();
+        });
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Header background change on scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(44, 62, 80, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+            } else {
+                header.style.background = 'linear-gradient(135deg, var(--primary) 0%, #1a252f 100%)';
+                header.style.backdropFilter = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
